@@ -1,5 +1,7 @@
 ## Rock, Paper, Scissors
 
+[![Build Status](https://travis-ci.org/alesavin/rock-paper-scissors.svg?branch=master)](https://travis-ci.org/alesavin/rock-paper-scissors)
+
 [Task description](TASK.md)
 
 ## Run
