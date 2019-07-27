@@ -8,8 +8,11 @@ import ru.alesavin.rockpaperscissors.model.impl.PlayerStrategyRepositoryImpl;
 import ru.alesavin.rockpaperscissors.model.impl.RandomPlayerStrategy;
 import ru.alesavin.rockpaperscissors.model.impl.StaticPlayerStrategy;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Provides HTTP API for the storage unit
@@ -27,14 +30,19 @@ public class ApiController {
     );
 
     @RequestMapping(method = RequestMethod.GET, value = "/hello")
-    public void hello(@CookieValue("JSESSION") final String cookie) {
+    public void hello(@CookieValue(name = "JSESSION", required = false) final String cookie,
+                      HttpServletResponse response) {
         if (cookie == null) {
-            // TODO
+            Cookie newCookie = new Cookie("JSESSION", UUID.randomUUID().toString());
+            System.out.println("/hello issue [" + newCookie.toString() + "]");
+            response.addCookie(newCookie);
+        } else {
+            System.out.println("/hello have JSESSION [" + cookie + "]");
         }
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/play")
-    public Round play(@CookieValue("JSESSION") final String cookie,
+    public Round play(@CookieValue(name = "JSESSION", required = false) final String cookie,
                       @RequestBody final RoundRequest request) {
         if (cookie == null)
             throw new SecurityException();
@@ -42,7 +50,7 @@ public class ApiController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/statistics")
-    public Round[] statistics(@CookieValue("JSESSION") final String cookie) {
+    public Round[] statistics(@CookieValue(name = "JSESSION", required = false) final String cookie) {
         if (cookie == null)
             throw new SecurityException();
         return engine.statistics(cookie);
