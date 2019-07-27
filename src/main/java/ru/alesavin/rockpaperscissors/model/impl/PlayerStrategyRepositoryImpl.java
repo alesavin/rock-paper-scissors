@@ -31,6 +31,6 @@ public class PlayerStrategyRepositoryImpl implements PlayerStrategyRepository {
     @Override
     @Nullable
     public PlayerStrategy resolve(String id) {
-        return map.get(id);
+        return id == null ? null : map.get(id);
     }
 }

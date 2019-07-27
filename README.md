@@ -4,8 +4,15 @@
 
 ## Run
 
-- ./mvnw spring-boot:run
-- 
+- ./mvnw test spring-boot:run
+- goto https://localhost:8443 at browser
+
+## TODO
+- global statistics
+- httpS
+- handlers tests
+- concurrent tests
+- logging
 
 ## Notes
 

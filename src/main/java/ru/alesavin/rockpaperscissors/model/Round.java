@@ -1,5 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
+import java.util.Objects;
+
 /**
  * TODO
  *
@@ -49,5 +51,31 @@ public class Round {
 
     public void setOutcome(Outcome outcome) {
         this.outcome = outcome;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Round round = (Round) o;
+        return Objects.equals(request, round.request) &&
+                choicePlayer1 == round.choicePlayer1 &&
+                choicePlayer2 == round.choicePlayer2 &&
+                outcome == round.outcome;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(request, choicePlayer1, choicePlayer2, outcome);
+    }
+
+    @Override
+    public String toString() {
+        return "Round{" +
+                "request=" + request +
+                ", choicePlayer1=" + choicePlayer1 +
+                ", choicePlayer2=" + choicePlayer2 +
+                ", outcome=" + outcome +
+                '}';
     }
 }
