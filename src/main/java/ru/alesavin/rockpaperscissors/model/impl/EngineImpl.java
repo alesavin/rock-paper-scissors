@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * TODO
+ * Base impl of game engine
  *
  * @author alesavin
  */

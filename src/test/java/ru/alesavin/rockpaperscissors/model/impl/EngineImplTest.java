@@ -6,7 +6,7 @@ import ru.alesavin.rockpaperscissors.model.*;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
- * TODO
+ * Test for EngineImpl
  *
  * @author alesavin
  */

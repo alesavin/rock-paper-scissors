@@ -9,7 +9,7 @@ import java.util.Set;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
- * TODO
+ * Test for StaticPlayerStrategy
  *
  * @author alesavin
  */

@@ -7,7 +7,7 @@ import ru.alesavin.rockpaperscissors.model.Shape;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
- * TODO
+ * Test for Solver
  *
  * @author alesavin
  */

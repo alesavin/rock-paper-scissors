@@ -10,13 +10,15 @@
 - goto https://localhost:8443 at browser, allow to work with self-signed cert (not for production)
 
 ## TODO
-- global statistics
+- global statistics (!)
 - handlers tests
 - concurrent tests
 - logging
-- travis CI
+- simplify Solver function
 
 ## Notes
 
-- all logic if synchronous there
+- all logic is synchronous there
+
+
 

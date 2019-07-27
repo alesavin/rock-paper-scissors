@@ -5,8 +5,8 @@
 //}
 
 function hello() {
-//    $.get('/hello').done(function(data) {
-    $.get("stub/hello.json").done(function(data) {
+    $.get('/hello').done(function(data) {
+//    $.get("stub/hello.json").done(function(data) {
                       $('#hello-user').html("Hello, " + data + "!");
                     })
                     .fail(function(xhr, status, error) {
@@ -16,8 +16,8 @@ function hello() {
 }
 
 function statistics() {
-//    $.getJSON('/statistics', {}, function(json) {
-    $.getJSON('stub/statistics.json', {}, function(json) {
+    $.getJSON('/statistics', {}, function(json) {
+//    $.getJSON('stub/statistics.json', {}, function(json) {
         $('#hello-user').html("Played " + json.length + " rounds.");
         $('#statistics').html('');
         for(var item in json) {

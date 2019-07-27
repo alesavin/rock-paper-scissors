@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * Result of game round
  *
  * @author alesavin
  */

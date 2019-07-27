@@ -7,10 +7,9 @@ import ru.alesavin.rockpaperscissors.model.PlayerStrategyRepository;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 /**
- * TODO
+ * Base impl of strategies repo based on map
  *
  * @author alesavin
  */

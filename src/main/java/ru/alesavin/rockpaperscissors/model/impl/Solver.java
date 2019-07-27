@@ -6,7 +6,7 @@ import ru.alesavin.rockpaperscissors.model.Shape;
 import org.springframework.lang.Nullable;
 
 /**
- * TODO
+ * Logic for game
  *
  * @author alesavin
  */
@@ -15,6 +15,7 @@ public class Solver {
     private Solver() {
     }
 
+    // TODO simplify it. mod(p1.ordinal - p2.ordinal) == 0 => DRAW, ...
     public static @Nullable Outcome solve(Shape p1, Shape p2) {
         if (p1 != null && p2 != null) {
             switch (p1) {

@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * All stuff work here
  *
  * @author alesavin
  */
@@ -11,5 +11,5 @@ public interface Engine {
 
     Round[] statistics(String user);
 
-    void clear(String user); // TODO change cookie there?
+    void clear(String user);
 }

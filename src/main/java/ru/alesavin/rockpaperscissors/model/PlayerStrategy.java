@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * Player strategy
  *
  * @author alesavin
  */

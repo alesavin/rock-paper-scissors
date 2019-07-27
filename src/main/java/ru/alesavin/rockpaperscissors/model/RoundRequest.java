@@ -3,7 +3,7 @@ package ru.alesavin.rockpaperscissors.model;
 import java.util.Objects;
 
 /**
- * TODO
+ * Request for game round
  *
  * @author alesavin
  */

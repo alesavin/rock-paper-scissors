@@ -6,7 +6,7 @@ import ru.alesavin.rockpaperscissors.model.Shape;
 import java.util.Random;
 
 /**
- * TODO
+ * Strategy with random choice
  *
  * @author alesavin
  */

@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * Represent player options for game
  *
  * @author alesavin
  */

@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * Repository for palyer strategies
  *
  * @author alesavin
  */
