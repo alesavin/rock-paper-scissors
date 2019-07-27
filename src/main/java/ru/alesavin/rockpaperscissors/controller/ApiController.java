@@ -56,6 +56,13 @@ public class ApiController {
         return engine.statistics(cookie);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/play")
+    public void clear(@CookieValue(name = "JSESSION", required = false) final String cookie) {
+        if (cookie == null)
+            throw new SecurityException();
+        engine.clear(cookie);
+    }
+
     @ExceptionHandler(SecurityException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public String handle(SecurityException e) {

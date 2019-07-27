@@ -1,0 +1,20 @@
+[
+  {
+    "request": {
+      "strategyIdPlayer1": "random",
+      "strategyIdPlayer2": "static:ROCK"
+    },
+    "choicePlayer1": "PAPER",
+    "choicePlayer2": "ROCK",
+    "outcome": "WIN_PLAYER1"
+  },
+  {
+    "request": {
+      "strategyIdPlayer1": "random",
+      "strategyIdPlayer2": "static:ROCK"
+    },
+    "choicePlayer1": "SCISSORS",
+    "choicePlayer2": "ROCK",
+    "outcome": "WIN_PLAYER2"
+  }
+]
