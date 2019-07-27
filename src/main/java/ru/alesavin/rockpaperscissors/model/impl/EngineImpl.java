@@ -1,16 +1,10 @@
 package ru.alesavin.rockpaperscissors.model.impl;
 
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.ListMultimap;
-import com.google.common.collect.MultimapBuilder;
-import org.springframework.util.LinkedMultiValueMap;
 import ru.alesavin.rockpaperscissors.model.*;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiFunction;
 
 /**
  * TODO
@@ -20,8 +14,6 @@ import java.util.function.BiFunction;
 public class EngineImpl implements Engine {
 
     private PlayerStrategyRepository repository;
-    private ListMultimap<String,Round> results =
-            MultimapBuilder.linkedHashKeys().arrayListValues().build();
 
     private ConcurrentHashMap<String, List<Round>> map = new ConcurrentHashMap<>();
 
@@ -45,26 +37,27 @@ public class EngineImpl implements Engine {
         Shape p2 = strategy2.play();
         Outcome outcome = Solver.solve(p1, p2);
         Round round = new Round(request, p1, p2, outcome);
-/*
-        map.compute(user, new BiFunction<String, List<Round>, List<Round>>() {
-            @Override
-            public List<Round> apply(String s, List<Round> rounds) {
-                return null;
-            }
+        map.compute(user, (s, rounds) -> {
+            if (rounds == null)
+                rounds = new ArrayList<>();
+            rounds.add(round);
+            return rounds;
         });
-*/
-        results.put(user, round);
         return round;
     }
 
     @Override
     public Round[] statistics(String user) {
-        List<Round> list = results.get(user);
-        return list == null ? new Round[0] : list.toArray(new Round[0]);
+        if (user != null) {
+            List<Round> list = map.get(user);
+            if (list != null)
+                return list.toArray(new Round[0]);
+        }
+        return new Round[0];
     }
 
     @Override
     public void clear(String user) {
-        results.removeAll(user);
+        if (user != null) map.remove(user);
     }
 }

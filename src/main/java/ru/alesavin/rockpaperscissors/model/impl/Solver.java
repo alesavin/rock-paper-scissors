@@ -3,7 +3,7 @@ package ru.alesavin.rockpaperscissors.model.impl;
 import ru.alesavin.rockpaperscissors.model.Outcome;
 import ru.alesavin.rockpaperscissors.model.Shape;
 
-import javax.annotation.Nullable;
+import org.springframework.lang.Nullable;
 
 /**
  * TODO

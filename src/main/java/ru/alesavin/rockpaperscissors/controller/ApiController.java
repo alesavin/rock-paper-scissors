@@ -34,10 +34,7 @@ public class ApiController {
                       HttpServletResponse response) {
         if (cookie == null) {
             Cookie newCookie = new Cookie("JSESSION", UUID.randomUUID().toString());
-            System.out.println("/hello issue [" + newCookie.toString() + "]");
             response.addCookie(newCookie);
-        } else {
-            System.out.println("/hello have JSESSION [" + cookie + "]");
         }
     }
 
