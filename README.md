@@ -22,9 +22,10 @@ at some point of time (total count of rounds != wins1 + wins2 + draws). Global s
 - add logging
 - simplify Solver function
 - add code coverage, checks (findbugs)
+- simplify javascript - add round stat at the end of list, so skip get /statistics and re-rendering all rounds data
 
 ## Notes
-- all actions are synchronous there for simplicity 
+- all actions are synchronous there for simplicity, we can discuss actor-based solution 
 
 
 
