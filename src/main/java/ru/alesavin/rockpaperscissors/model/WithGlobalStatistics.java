@@ -1,7 +1,7 @@
 package ru.alesavin.rockpaperscissors.model;
 
 /**
- * TODO
+ * Add ability to get global statistics
  *
  * @author alesavin
  */
