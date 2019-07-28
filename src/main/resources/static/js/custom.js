@@ -1,16 +1,15 @@
-//function refreshLoop() {
-//    refresh();
-////    alert("232");
-//    setTimeout("refreshLoop();", 30000);
-//}
+function refreshLoop() {
+    globalStatistics();
+    setTimeout("refreshLoop();", 5000);
+}
 
 function hello() {
     $.get('/hello').done(function(data) {
 //    $.get("stub/hello.json").done(function(data) {
-                      $('#hello-user').html("Hello, " + data + "!");
+                      statistics();
                     })
                     .fail(function(xhr, status, error) {
-                $('#alert-message').html("Oops! Error at hello: status = " + status + ", message = " + error);
+                $('#alert-message').html("Oops! Error at hello: " + JSON.stringify(xhr.responseText));
                       $('.alert').show();
                     });
 }
@@ -18,7 +17,7 @@ function hello() {
 function statistics() {
     $.getJSON('/statistics', {}, function(json) {
 //    $.getJSON('stub/statistics.json', {}, function(json) {
-        $('#hello-user').html("Played " + json.length + " rounds.");
+        $('#hello-user').html("You played " + json.length + " rounds.");
         $('#statistics').html('');
         for(var item in json) {
             $('#statistics').append("<tr><td>" +
@@ -30,7 +29,7 @@ function statistics() {
                  "</td></tr>");
         }
     })            .fail(function (xhr, status, error) {
-                $('#alert-message').html("Oops! Error at statistics: status = " + status + ", message = " + error);
+                $('#alert-message').html("Oops! Error at statistics: " + JSON.stringify(xhr.responseText));
                       $('.alert').show();
                   });;
 }
@@ -67,6 +66,22 @@ function restart() {
 
 function refresh() {
     statistics();
+    globalStatistics();
 }
+
+function globalStatistics() {
+    $.getJSON('/global-statistics', {}, function(json) {
+//    $.getJSON('stub/global-statistics.json', {}, function(json) {
+        $('#global-statistics').html("Total rounds played: " + json.roundsPlayed +
+            ",<br/> wins for 1 players: " + json.winsForFirstPlayers +
+            ",<br/> wins for 2 players: " + json.winsForSecondPlayers +
+            ",<br/> draws: " + json.draws
+            );
+    })            .fail(function (xhr, status, error) {
+                $('#alert-message').html("Oops! Error at global-statistics: status = " + status + ", message = " + error);
+                      $('.alert').show();
+                  });;
+}
+
 
 

@@ -10,7 +10,7 @@
 - goto https://localhost:8443 at browser, allow to work with self-signed cert (not for production)
 
 ## TODO
-- global statistics (!)
+- global statistics tests
 - handlers tests
 - concurrent tests
 - logging

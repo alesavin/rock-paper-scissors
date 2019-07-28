@@ -3,10 +3,7 @@ package ru.alesavin.rockpaperscissors.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.alesavin.rockpaperscissors.model.*;
-import ru.alesavin.rockpaperscissors.model.impl.EngineImpl;
-import ru.alesavin.rockpaperscissors.model.impl.PlayerStrategyRepositoryImpl;
-import ru.alesavin.rockpaperscissors.model.impl.RandomPlayerStrategy;
-import ru.alesavin.rockpaperscissors.model.impl.StaticPlayerStrategy;
+import ru.alesavin.rockpaperscissors.model.impl.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +19,7 @@ import java.util.UUID;
 @RestController
 public class ApiController {
 
-    private Engine engine = new EngineImpl(
+    private EngineWithGlobalStatistics engine = new EngineWithGlobalStatistics(
         new PlayerStrategyRepositoryImpl(
            new RandomPlayerStrategy(),
            new StaticPlayerStrategy(Shape.ROCK)
@@ -58,6 +55,11 @@ public class ApiController {
         if (cookie == null)
             throw new SecurityException();
         engine.clear(cookie);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/global-statistics")
+    public GlobalStatistics globalStatistics() {
+        return engine.globalStatistics();
     }
 
     @ExceptionHandler(SecurityException.class)
